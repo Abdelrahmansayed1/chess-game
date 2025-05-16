@@ -1,0 +1,16 @@
+<div class="iframe-page">
+  <app-chess-board
+    *ngIf="playerReady"
+    [isRotated]="isRotated"
+    [isDisabled]="isDisabled"
+    (moveMade)="handleMove($event)"
+  >
+  </app-chess-board>
+
+  <div *ngIf="isCheckmate" class="modal-overlay">
+    <div class="modal">
+      <h2>Checkmate! Game over.</h2>
+      <button (click)="createNewGame()">Create new game</button>
+    </div>
+  </div>
+</div>

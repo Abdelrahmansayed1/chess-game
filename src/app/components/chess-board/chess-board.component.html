@@ -1,0 +1,23 @@
+<div
+  class="chess-board"
+  [class.rotated]="isRotated"
+  [class.disabled]="isDisabled"
+>
+  <ngx-chess-board
+    #board
+    [lightTileColor]="'#f0d9b5'"
+    [darkTileColor]="'#b58863'"
+    [size]="600"
+    [disabled]="isDisabled"
+    [showCoords]="true"
+    (moveChange)="handleMove($event)"
+  >
+  </ngx-chess-board>
+  <button
+    *ngIf="isCheckmate"
+    (click)="resetBoard()"
+    style="margin-top: 16px; width: 100%"
+  >
+    Create new game
+  </button>
+</div>
