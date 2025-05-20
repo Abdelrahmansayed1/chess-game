@@ -1,5 +1,5 @@
 [build]
-  command = "ng build"
+  command = "npm install --legacy-peer-deps && ng build"
   publish = "dist/chess-game"
 
 [build.environment]
