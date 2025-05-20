@@ -1,0 +1,6 @@
+[build]
+  command = "ng build"
+  publish = "dist/chess-game"
+
+[build.environment]
+  NODE_VERSION = "18.19.1"
