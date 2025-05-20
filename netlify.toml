@@ -1,6 +1,0 @@
-[build]
-  command = "npm install --legacy-peer-deps && ng build"
-  publish = "dist/chess-game"
-
-[build.environment]
-  NODE_VERSION = "18.19.1"
