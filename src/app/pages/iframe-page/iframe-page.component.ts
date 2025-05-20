@@ -40,14 +40,25 @@ export class IframePageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       this.currentPlayer = params['player'] as '1' | '2';
-      this.isRotated = this.currentPlayer === '2';
-      this.isDisabled = this.currentPlayer === '2';
       this.playerReady = true;
 
       // Load FEN from LocalStorage if present
       const savedFen = localStorage.getItem('chessGameState');
       if (savedFen) {
-        this.chessBoard.board.setFEN(savedFen);
+        setTimeout(() => {
+          if (this.chessBoard?.board) {
+            this.chessBoard.board.setFEN(savedFen);
+            const turn = savedFen.split(' ')[1];
+            this.isRotated = this.currentPlayer === '2';
+            this.isDisabled =
+              (turn === 'w' && this.currentPlayer === '2') ||
+              (turn === 'b' && this.currentPlayer === '1');
+          }
+        });
+      } else {
+        // New game - player 1 (white) starts
+        this.isRotated = this.currentPlayer === '2';
+        this.isDisabled = this.currentPlayer === '2';
       }
     });
   }
