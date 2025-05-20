@@ -47,13 +47,7 @@ export class IframePageComponent implements OnInit, OnDestroy {
       // Load FEN from LocalStorage if present
       const savedFen = localStorage.getItem('chessGameState');
       if (savedFen) {
-        if (
-          this.chessBoard &&
-          this.chessBoard.board &&
-          this.chessBoard.board.setFEN
-        ) {
-          this.chessBoard.board.setFEN(savedFen);
-        }
+        this.chessBoard.board.setFEN(savedFen);
       }
     });
   }
