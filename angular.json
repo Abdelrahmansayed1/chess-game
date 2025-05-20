@@ -99,7 +99,10 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/chess-game/"
+            "baseHref": "/chess-game/",
+            "name": "GitHub Pages",
+            "email": "your-email@example.com",
+            "message": "Deploy to GitHub Pages"
           }
         }
       }
